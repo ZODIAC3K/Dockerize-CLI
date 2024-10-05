@@ -1,5 +1,5 @@
 {
-	"name": "Dockerize-CLI",
+	"name": "@zodiac3k/dockerize-cli",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -8,7 +8,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "Harsh Deepanshu",
 	"license": "ISC",
 	"dependencies": {
 		"@inquirer/demo": "^0.9.3",
@@ -22,5 +22,8 @@
 	"bin": {
 		"dockerize": "./index.js",
 		"dct": "./index.js"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
