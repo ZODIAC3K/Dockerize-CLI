@@ -1,6 +1,12 @@
 import { writeFile, readFile } from "fs/promises";
 import path from "path";
 
+async function createReactApp(project_name) {
+	setupDockerForReact(project_name);
+	setupDockerComposeForReact(project_name);
+	updateDevScripForReact(project_name);
+}
+
 async function updateDevScripForReact(project_name) {
 	const packageJsonPath = path.join(project_name, "package.json");
 
@@ -159,4 +165,5 @@ export {
 	updateDevScripForReact,
 	setupDockerForReact,
 	setupDockerComposeForReact,
+	createReactApp,
 };

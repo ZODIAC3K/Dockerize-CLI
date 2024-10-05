@@ -30,7 +30,8 @@ const menu_questions = [
 		choices: [
 			"Create a Frontend Project",
 			"Create a Backend Project",
-			"Create Both",
+			"Create a Database",
+			"Create a Fullstack Project",
 			"Exit",
 		],
 	},
@@ -67,41 +68,63 @@ const backend_questions = [
 
 const database_questions = [
 	{
+		type: "input",
+		name: "project_name",
+		message: "Enter the project name",
+	},
+	{
 		type: "list",
-		name: "database",
+		name: "database_name",
 		message: "Choose a database",
-		choices: ["MongoDB", "PostgreSQL", "MySQL"],
+		choices: ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
 	},
 	{
 		type: "list",
 		name: "database_gui",
-		message: "Choose a database",
-		choices: ["PgAdmin4", "Adminer"],
+		message: "Choose a database GUI",
+		choices: [
+			"PgAdmin4 (RDBMS)",
+			"Adminer (RDBMS)",
+			"DBeaver (RDBMS)",
+			"RedisInsight (NoSQL)",
+			"No GUI",
+		],
 	},
 ];
 
 const fullstack_questions = [
-    {
-        type: "input",
-        name: "project_name",
-        message: "Enter the project name",
-    },
-    {
-        type: "list",
-        name: "stack_name",
-        message: "Choose a STACK",
-        choices: ["MERN", "NEXT", "CUSTOM"],
-    },
-    {
-        type: "confirm",
-        name: "use_typescript",
-        message: "Do you want to use TypeScript?",
-    },
-    {
-        type: "confirm",
-        name: "use_docker",
-        message: "Do you want to use Docker?",
-    },
+	{
+		type: "input",
+		name: "project_name",
+		message: "Enter the project name",
+	},
+	{
+		type: "list",
+		name: "stack_name",
+		message: "Choose a STACK",
+		choices: ["MERN", "NEXT", "CUSTOM"],
+	},
+	{
+		type: "confirm",
+		name: "use_typescript",
+		message: "Do you want to use TypeScript?",
+	},
+	{
+		type: "confirm",
+		name: "use_docker",
+		message: "Do you want to use Docker?",
+	},
+	{
+		type: "confirm",
+		name: "use_redis",
+		message: "Do you want to use Redis?",
+	},
 ];
 
-export { frontend_questions, menu_questions, backend_questions, database_questions, fullstack_questions };
+export {
+	frontend_questions,
+	menu_questions,
+	backend_questions,
+	database_questions,
+	fullstack_questions,
+};

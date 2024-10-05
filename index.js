@@ -9,12 +9,17 @@ import {
 	frontend_questions,
 	menu_questions,
 	backend_questions,
+	database_questions,
+	fullstack_questions,
 } from "./src/menu/menu_prompts.js";
 import {
 	updateDevScripForReact,
 	setupDockerForReact,
 	setupDockerComposeForReact,
+	createReactApp,
 } from "./src/docker/frontend/react/data.js";
+
+import { createDatabaseDockerCompose } from "./src/docker/database/data.js";
 
 import { createExpressApp } from "./src/docker/backend/node/data.js";
 
@@ -57,9 +62,10 @@ async function createFrontendProject() {
 		createApp.on("close", (code) => {
 			if (code === 0) {
 				if (use_docker) {
-					setupDockerForReact(project_name);
-					setupDockerComposeForReact(project_name);
-					updateDevScripForReact(project_name); // Update the dev script in package.json to use Vite --host. This is required for Docker
+					// setupDockerForReact(project_name);
+					// setupDockerComposeForReact(project_name);
+					// updateDevScripForReact(project_name); // Update the dev script in package.json to use Vite --host. This is required for Docker
+					createReactApp(project_name);
 				}
 			} else {
 				console.error(
@@ -174,8 +180,41 @@ const user_selection_menu = async () => {
 		createFrontendProject();
 	} else if (action == "Create a Backend Project") {
 		createBackendProject();
-	} else if (action == "Create Both") {
-		console.log("Both Frontend and Backend Project Created");
+	} else if (action == "Create a Database") {
+		const { project_name, database_name, database_gui } =
+			await inquirer.prompt(database_questions);
+		if (project_name == "" || project_name == ".") {
+			console.log("Project Name Cannot be empty or .");
+			console.log("Exiting...");
+			process.exit(0);
+		}
+
+		if (database_gui == "No GUI") {
+			console.log("Creating Database without GUI");
+		}
+		createDatabaseDockerCompose(project_name, database_name, database_gui);
+	} else if (action == "Create a Fullstack Project") {
+		const {
+			project_name,
+			stack_name,
+			use_redis,
+			use_typescript,
+			use_docker,
+		} = await inquirer.prompt(fullstack_questions);
+
+		if (project_name == "" || project_name == ".") {
+			console.log("Project Name Cannot be empty or .");
+			console.log("Exiting...");
+			process.exit(0);
+		}
+
+		if (stack_name == "MERN") {
+			console.log("MERN Stack Project Created");
+		} else if (stack_name == "NEXT") {
+			console.log("NEXT Stack Project Created");
+		} else {
+			console.log("CUSTOM Stack Project Created");
+		}
 	} else {
 		let str = "Exiting...";
 		const exit_text = chalkAnimation.karaoke(str);
