@@ -18,5 +18,9 @@
 		"gradient-string": "^3.0.0",
 		"inquirer": "^11.1.0",
 		"nanospinner": "^1.1.0"
+	},
+	"bin": {
+		"dockerize": "./index.js",
+		"dct": "./index.js"
 	}
 }
