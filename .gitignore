@@ -87,3 +87,6 @@ public/
 
 # MacOS files
 .DS_Store
+
+# Code Runner files
+tempCodeRunnerFile.js
