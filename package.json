@@ -1,8 +1,8 @@
 {
 	"name": "@zodiac3k/dockerize-cli",
-	"version": "0.0.61-alpha",
-	"description": "",
-	"main": "dist/bundle.js",
+	"version": "0.0.67-alpha",
+	"description": "A CLI tool for setting up Dockerized applications with customizable options.",
+	"main": "dist/bundle.mjs",
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
@@ -29,14 +29,13 @@
 		"access": "public"
 	},
 	"files": [
-		"dist/",
-		"src/ui/standard.flf"
+		"dist/"
 	],
 	"devDependencies": {
 		"@babel/core": "^7.25.7",
 		"@babel/preset-env": "^7.25.7",
 		"babel-loader": "^9.2.1",
-		"file-loader": "^6.2.0",
+		"copy-webpack-plugin": "^11.0.0",
 		"webpack": "^5.95.0",
 		"webpack-cli": "^5.1.4",
 		"webpack-node-externals": "^3.0.0"
