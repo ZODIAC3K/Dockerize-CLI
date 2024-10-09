@@ -1,6 +1,6 @@
 {
 	"name": "@zodiac3k/dockerize-cli",
-	"version": "0.0.67-alpha",
+	"version": "0.0.68-alpha",
 	"description": "A CLI tool for setting up Dockerized applications with customizable options.",
 	"main": "dist/bundle.mjs",
 	"type": "module",
