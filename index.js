@@ -14,12 +14,7 @@ import {
 	database_questions,
 	fullstack_questions,
 } from "./src/menu/menu_prompts.js";
-import {
-	updateDevScripForReact,
-	setupDockerForReact,
-	setupDockerComposeForReact,
-	createReactApp,
-} from "./src/docker/frontend/react/data.js";
+import { createReactApp } from "./src/docker/frontend/react/data.js";
 
 import { createDatabaseDockerCompose } from "./src/docker/database/data.js";
 
@@ -39,11 +34,10 @@ async function createFrontendProject() {
 	}
 	console.log(`Creating ${frontend_framework} project...`);
 
-	// Step 1: Install the selected framework
 	if (frontend_framework === "React") {
 		console.log(`Creating React project with Vite...`);
 
-		const template = use_typescript ? "react-ts" : "react"; // Use TypeScript template if user chose to use TypeScript else use React template
+		const template = use_typescript ? "react-ts" : "react";
 
 		const createAppCommand =
 			packageManager === "pnpm"
@@ -64,9 +58,6 @@ async function createFrontendProject() {
 		createApp.on("close", (code) => {
 			if (code === 0) {
 				if (use_docker) {
-					// setupDockerForReact(project_name);
-					// setupDockerComposeForReact(project_name);
-					// updateDevScripForReact(project_name); // Update the dev script in package.json to use Vite --host. This is required for Docker
 					createReactApp(project_name);
 				}
 			} else {

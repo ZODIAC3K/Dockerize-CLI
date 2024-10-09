@@ -1,12 +1,13 @@
 {
 	"name": "@zodiac3k/dockerize-cli",
-	"version": "0.0.68-alpha",
+	"version": "0.0.69-alpha",
 	"description": "A CLI tool for setting up Dockerized applications with customizable options.",
 	"main": "dist/bundle.mjs",
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "webpack --config webpack.config.js",
+		"start": "npm run build && clear && node dist/bundle.mjs",
 		"prepublishOnly": "npm run build"
 	},
 	"keywords": [],
