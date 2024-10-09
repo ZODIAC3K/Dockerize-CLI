@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const { BannerPlugin } = webpack;
 
 export default {
-	entry: "./index.js", // Point to your entry file
+	entry: "./index.js", // Entry point for the application
 	output: {
 		filename: "bundle.mjs", // Use .mjs for ESM compatibility
 		path: path.resolve(__dirname, "dist"), // Output directory
@@ -22,7 +22,7 @@ export default {
 		outputModule: true, // Enable ESM output module
 	},
 	resolve: {
-		extensions: [".js"],
+		extensions: [".js"], // Resolve JS files
 	},
 	module: {
 		rules: [
@@ -36,21 +36,13 @@ export default {
 					},
 				},
 			},
-			{
-				test: /\.flf$/, // Add rule for font files
-				type: "asset/resource", // Use the asset module to emit the font file
-				generator: {
-					filename: "standard.flf", // Specify the output filename
-				},
-			},
 		],
 	},
-
-	mode: "production", // Set mode to production
+	mode: "production", // Set mode to production for optimized builds
 	plugins: [
 		// Add BannerPlugin to include the shebang
 		new BannerPlugin({
-			banner: "#!/usr/bin/env node",
+			banner: "#!/usr/bin/env node", // Shebang to indicate Node.js executable
 			raw: true, // Ensure the shebang is not commented out
 		}),
 	],
