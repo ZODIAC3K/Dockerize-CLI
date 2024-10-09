@@ -76,7 +76,7 @@ Dockerize-CLI is a quick and easy way to scaffold projects that are fully Docker
 
 If you have suggestions or feature requests, feel free to let me know! This project is open-source, and contributions are always welcome. If you'd like to contribute, you can find the GitHub repository here:
 
-[GitHub Repo](#[Dockerize-CLI](https://github.com/ZODIAC3K/Dockerize-CLI.git))
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?logo=github)](https://github.com/ZODIAC3K/Dockerize-CLI.git)
 
 ## License
 
